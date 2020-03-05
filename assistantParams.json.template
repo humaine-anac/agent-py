@@ -1,0 +1,6 @@
+{
+  "apikey": "Watson Assistant skill apikey",
+  "url": "Watson Assistant URL instances",
+  "assistantId": "Watson Assistant ID",
+  "version": "2019-02-28"
+}

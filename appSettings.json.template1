@@ -1,0 +1,11 @@
+{
+  "defaultPort": "14007",
+  "name": "Agent007",
+  "serviceMap": {
+    "environment-orchestrator": {
+      "protocol": "http",
+      "host": "localhost",
+      "port": 14010
+    }
+  }
+}

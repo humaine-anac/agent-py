@@ -1,0 +1,372 @@
+{
+  "intents": [
+    {
+      "intent": "RejectOffer",
+      "examples": [
+        {
+          "text": "Forget about it."
+        },
+        {
+          "text": "No, I don't like your offer."
+        },
+        {
+          "text": "No, that is not acceptable."
+        },
+        {
+          "text": "No, forget about it."
+        },
+        {
+          "text": "No deal."
+        },
+        {
+          "text": "That's not good enough"
+        },
+        {
+          "text": "I reject your offer"
+        },
+        {
+          "text": "Forget it."
+        }
+      ],
+      "description": "Offer rejection"
+    },
+    {
+      "intent": "Information",
+      "examples": [
+        {
+          "text": "I hear that you don't have enough money to cover your offer, so I'm withdrawing my acceptance."
+        },
+        {
+          "text": "I'm sorry. I was going to make a deal, but you don't have enough money left."
+        },
+        {
+          "text": "You don't have enough budget left"
+        },
+        {
+          "text": "I'm sorry. I was ready to make a deal, but apparently you don't have enough money left."
+        },
+        {
+          "text": "I was ready to make a deal, but apparently you don't have enough money left."
+        }
+      ],
+      "description": "Informational messages that contain no direct negotiation content"
+    },
+    {
+      "intent": "AcceptOffer",
+      "examples": [
+        {
+          "text": "OK, it's a deal!"
+        },
+        {
+          "text": "I accept your offer."
+        },
+        {
+          "text": "Yes, that is acceptable."
+        },
+        {
+          "text": "I'll take it"
+        },
+        {
+          "text": "OK, that's a good deal"
+        },
+        {
+          "text": "I accept."
+        },
+        {
+          "text": "You got it."
+        },
+        {
+          "text": "You've got a deal!"
+        },
+        {
+          "text": "You've got it!"
+        },
+        {
+          "text": "You've got a deal. I'll sell you @sys-number @good"
+        },
+        {
+          "text": "You've got a deal! I'll sell you @sys-number @good, @sys-number @good, @sys-number @good"
+        }
+      ],
+      "description": "Offer acceptance"
+    },
+    {
+      "intent": "Offer",
+      "examples": [
+        {
+          "text": "I can give you a good deal on @good"
+        },
+        {
+          "text": "I will give you @sys-currency for @sys-number @good and @sys-number @good"
+        },
+        {
+          "text": "I'd like to buy @sys-number @good and @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "For @sys-currency I will sell you @sys-number @good @sys-number @good"
+        },
+        {
+          "text": "I'll sell you @sys-number @good, @sys-number @good and @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "For a price of @sys-currency, I'll give you @sys-number @good"
+        },
+        {
+          "text": "For a price of @sys-number, I'll give you @sys-number @good"
+        },
+        {
+          "text": "I'll give you @sys-number @good and @sys-number @good for @sys-number"
+        },
+        {
+          "text": "I'll sell you @sys-number @good and @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "I'll sell you @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "Does anyone want to buy some @good"
+        },
+        {
+          "text": "I have @good and @good for sale"
+        },
+        {
+          "text": "I have @good for sale."
+        },
+        {
+          "text": "I want @good and @good"
+        },
+        {
+          "text": "Is anyone interested in selling @good"
+        },
+        {
+          "text": "Is anyone selling @good"
+        },
+        {
+          "text": "@avatarName I want some @good"
+        },
+        {
+          "text": "@avatarName I want to buy some @good"
+        },
+        {
+          "text": "@avatarName I want to buy @good and @good"
+        },
+        {
+          "text": "@avatarName I want to buy @sys-number @good"
+        },
+        {
+          "text": "@avatarName I want @sys-number @good"
+        },
+        {
+          "text": "@avatarName I would like @sys-number @good and @sys-number @good"
+        },
+        {
+          "text": "@avatarName I want @good"
+        },
+        {
+          "text": "@avatarName I want @sys-number @good and @sys-number @good"
+        },
+        {
+          "text": "I will give you @sys-currency for @sys-number @good"
+        },
+        {
+          "text": "I want to buy @sys-number @good and @sys-number good for @sys-currency"
+        },
+        {
+          "text": "I want to buy @sys-number @good and @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "I want @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "I want @sys-number @good and @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "How about if you give me @sys-number @good and @sys-number @good for @sys-currency"
+        },
+        {
+          "text": "I'd like to buy @sys-number @good"
+        },
+        {
+          "text": "I'd like to buy @good"
+        },
+        {
+          "text": "Is anyone selling @good and @good"
+        },
+        {
+          "text": "I'm interested in buying some @good"
+        },
+        {
+          "text": "I want @sys-number @good"
+        },
+        {
+          "text": "I want some @good"
+        },
+        {
+          "text": "I want @sys-number @good and @sys-number @good"
+        }
+      ],
+      "description": "Lumps together buy/sell requests/offers"
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "good",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "egg",
+          "synonyms": [
+            "egg",
+            "eggs"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "flour",
+          "synonyms": [
+            "cups of fluor"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "milk",
+          "synonyms": [
+            "cups of milk"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "sugar",
+          "synonyms": [
+            "cups of sugar"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "vanilla",
+          "synonyms": [
+            "teaspoons of vanilla",
+            "tea spoons of vanilla"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "chocolate",
+          "synonyms": [
+            "ounces of chocolate"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "blueberry",
+          "synonyms": [
+            "packets of blueberries",
+            "blueberries"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-currency",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "avatarName",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Celia",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Watson",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "Welcome",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "HUMAINE agent v2",
+  "language": "en",
+  "description": "Intent classification and entity detection for sample ANAC agent. v2 combines several intents that are difficult to distinguish."
+}
