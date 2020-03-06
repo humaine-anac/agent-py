@@ -151,9 +151,9 @@ def receiveRejection():
             'status': 'Acknowledged',
             'message': message
         }
-        if message['ratiolane'] and message['rationale'] == 'Insufficient budget' and message['bid'] and message['bid']['type'] == "Accept":
+        if message['ratiolan'] and message['rational'] == 'Insufficient budget' and message['bid'] and message['bid']['type'] == "Accept":
             msg2 = json.loads(json.dumps(message))
-            del msg2['rationale']
+            del msg2['rational']
             del msg2['bid']
             msg2['timestamp'] = time.time()
             msg2['text'] = "I'm sorry, " + msg2['addressee'] + ". I wasready to make a deal, but apparently you don't have enough money left."

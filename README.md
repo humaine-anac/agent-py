@@ -1,6 +1,8 @@
 # agent-py
 This is a simple sample negotiation agent that works with the HUMAINE negotiating agents platform. It is intended to serve as
 
+Written using Python 3.7
+
 - A simple agent against which others may be tested
 - A simple code example upon which more sophisticated negotiation agents can be based
 - An example of how to use Watson Assistant to help interpret English into a structured bid representation
