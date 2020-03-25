@@ -5,7 +5,7 @@ from cool_math3 import square
 import ibm_watson
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
-# Global Variables
+# Global Variables & settings
 AssistantV2 = ibm_watson.AssistantV2
 
 assistantParams = None
@@ -23,13 +23,14 @@ assistant.set_default_headers({'x-watson-learning-opt-out': "true"})
 GLOBAL_sessionID = None
 
 # Methods
+# create a new session ID for watson assistant
 def createSessionID(assistantID):
-    print("entered createSessionID", assistantID)
     sessionData = assistant.create_session(assistant_id=assistantID).get_result()
     return sessionData['session_id']
 
+
+# Send a user message to ibm assistant to be processed and classified
 def classifyMessage(input_):
-    print("entered classifyMessage")
     assistantId = assistantParams['assistantId']
     text = None
     if input_['text']:
@@ -50,6 +51,7 @@ def classifyMessage(input_):
     
     response = None
 
+    # try to get a response with the current session ID
     try:
         response = assistant.message(
             assistant_id=assistantId,
@@ -61,6 +63,8 @@ def classifyMessage(input_):
         )
         translateWatsonResponse(response, input_)
     except:
+
+        # create a new session ID and try again
         try:
 
             sessionId = createSessionID(assistantId)
@@ -78,7 +82,9 @@ def classifyMessage(input_):
             print("Error creating sessionId for assistantId", assistantId)
     
     return None
-    
+
+
+# convert watsons response to a usable JSON object
 def translateWatsonResponse(response, input_):
 
     output = response['output'] or {}

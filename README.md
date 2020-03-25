@@ -17,7 +17,7 @@ git clone git@github.com:humaine-anac/agent-py.git
 cd agent-py
 cp appSettings.json.template1 appSettings.json
 cp assistantParams.json.template assistantParams.json
-npm install
+pip install Flask
 ```
 
 For this particular sample agent, you need a Watson Assistant instance and an associated skill. You can visit this site to set up a free account: https://cloud.ibm.com/registration?target=/developer/watson/launch-tool/conversation&hideTours=true&cm_sp=WatsonPlatform-WatsonPlatform-_-OnPageNavCTA-IBMWatson_Conversation-_-Watson_Developer_Website&cm_mmca1=000027BD. This will guide you through the process of setting up an account, and creating a Watson Assistant. You will need to create a skill to associate with your Watson Assistant instance.
@@ -28,25 +28,13 @@ Edit the file assistantParams.json to include the correct apikey, url, and assis
 
 Finally, to instantiate the agent, execute
 ```sh
-node agent-jok.js -level 2 -port 14007 > agent001.log &
+Export FLASK_APP=agent-py.py
+flask run --port {port}
 ```
 
 Now you should have a running instance of the negotiation agent.
 
-To instantiate a second instance of the agent, repeat all of the steps above, with *jok2* replacing *jok1*, *template2* replacing *template1*, and *-port 14008* replacing *-port 14007*. Explicitly, assuming you are starting from the agent-jok1 directory, execute:
-
-```sh
-cd ..
-git clone git@github.com:humaine-anac/agent-jok.git
-mv agent-jok agent-jok2
-cd agent-jok2
-cp appSettings.json.template2 appSettings.json
-cp ../agent-jok1/assistantParams.json .
-npm install
-node agent-jok.js -level 2 -port 14008 > agent001.log &
-```
-*Note that the assistantParams.json file should be the same in the agent-jok1 and agent-jok2 directories.*
-
+To instantiate a second instance of the agent, repeat all of the steps above, replacing *-port 14008*. Explicitly, assuming you are starting from the agent-py
 
 How to test the negotiation agent (normal setup)
 ----

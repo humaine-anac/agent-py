@@ -5,6 +5,8 @@ import importlib
 conversation = importlib.import_module('conversation')
 
 # Methods
+# From the intents and entities obtained from Watson Assistant, extract a structured representation
+# of the message
 def interpretMessage(watsonResponse):
     print("entered interpretMessage")
 
@@ -39,10 +41,12 @@ def interpretMessage(watsonResponse):
     
     if cmd:
         cmd['metadata'] = watsonResponse['input']
-        cmd['metadata']['addressee'] = watsonResponse['input']['addressee'] or extractAddressee(entities)
+        cmd['metadata']['addressee'] = watsonResponse['input']['addressee'] or extractAddressee(entities) # Expect the addressee to be provided, but extract it if necessary
         cmd['metadata']['timeStamp'] = time.time()
     return cmd
 
+
+# Extract the addressee from entities (in case addressee is not already supplied with the input message)
 def extractAddressee(entities):
     print("entered extractAddressee")
     addressees = []
@@ -57,6 +61,8 @@ def extractAddressee(entities):
         addressee = addressees[0]
     return addressee
 
+
+# Extract goods and their amounts from the entities extracted by Watson Assistant
 def extractOfferFromEntities(entityList):
     print("entered extractOfferFromEntities")
     entities = json.loads(json.dumps(entityList))
@@ -71,7 +77,10 @@ def extractOfferFromEntities(entityList):
             amount = float(eBlock['value'])
             state = 'amount'
         elif eBlock['entity'] == 'good' and state == 'amount':
-            quantity[eBlock['value']] = amount
+            if(amount % 1 == 0):
+                quantity[eBlock['value']] = int(amount)
+            else:
+                quantity[eBlock['value']] = amount
             state = None
             removedIndices.append(i - 1)
             removedIndices.append(i)
@@ -82,6 +91,8 @@ def extractOfferFromEntities(entityList):
 
     return {'quantity': quantity, 'price': price}
 
+
+# Extract price from entities extracted by Watson Assistant
 def extractPrice(entities):
     print("entered extractPrice")
     price = None
@@ -100,6 +111,8 @@ def extractPrice(entities):
 
     return price
 
+
+# Extract bid from message sent by another agent, a human, or myself
 def extractBidFromMessage(message):
     print("entered extractBidFromMessage")
     response = conversation.classifyMessage(message)
