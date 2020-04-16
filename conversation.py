@@ -1,7 +1,6 @@
 # Imports
 import importlib
 import json
-from cool_math3 import square
 import ibm_watson
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
